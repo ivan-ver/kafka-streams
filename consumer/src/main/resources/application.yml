@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: 172.16.12.90:29092
+      groupId: broker-plant-id-dev
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: latest
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+
+server:
+  port: 8082
