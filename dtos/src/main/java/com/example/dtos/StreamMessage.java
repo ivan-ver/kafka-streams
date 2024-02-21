@@ -1,6 +1,6 @@
 package com.example.dtos;
 
-public record Message(
+public record StreamMessage(
         String topic,
         String message,
         boolean isImportant

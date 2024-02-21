@@ -1,7 +1,7 @@
 package com.example.producer1;
 
 
-import com.example.dtos.Message;
+import com.example.dtos.StreamMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -12,11 +12,11 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class BrokerProducerService {
-    private final KafkaTemplate<String, Message> kafkaTemplate;
+    private final KafkaTemplate<String, StreamMessage> kafkaTemplate;
 
-    @Scheduled(fixedDelay = 100)
+    @Scheduled(fixedDelay = 2000)
     private void sendMessage() {
-        Message message = new Message("some topic", "Some message", true);
-        kafkaTemplate.send("streams-topic-send-1", UUID.randomUUID().toString(), message);
+        StreamMessage message = new StreamMessage("some topic", "Some message", true);
+        kafkaTemplate.send("process-data", UUID.randomUUID().toString(), message);
     }
 }
