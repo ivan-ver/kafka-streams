@@ -6,4 +6,4 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 server:
-  port: 8481
+  port: 8482

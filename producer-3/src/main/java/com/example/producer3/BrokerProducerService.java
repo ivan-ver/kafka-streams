@@ -1,6 +1,7 @@
-package com.example.producer1;
+package com.example.producer3;
 
 
+import com.example.dtos.Product;
 import com.example.dtos.ScoreEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -13,13 +14,13 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class BrokerProducerService {
-    private final KafkaTemplate<String, ScoreEvent> kafkaTemplate;
+    private final KafkaTemplate<String, Product> kafkaTemplate;
     private final static Random RND = new Random();
 
     @Scheduled(fixedDelay = 500)
     private void sendMessage() {
         RND.nextLong(20);
-        ScoreEvent scoreEvent = new ScoreEvent(RND.nextLong(10), RND.nextLong(10), RND.nextDouble(100));
-        kafkaTemplate.send("score", UUID.randomUUID().toString(), scoreEvent);
+        Product product = new Product(RND.nextLong(10), "Product name " + RND.nextInt(100));
+        kafkaTemplate.send("product", UUID.randomUUID().toString(), product);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.streams;
 
-import com.example.streams.serialization.MessageSerdes;
+import com.example.streams.serialization.result.ResultSerdes;
 import org.apache.kafka.common.serialization.Serdes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,10 +20,10 @@ public class BrokerConfig {
     @Bean(name = KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME)
     public KafkaStreamsConfiguration kStreamsConfig() {
         return new KafkaStreamsConfiguration(new HashMap<>(){{
-            put(APPLICATION_ID_CONFIG, "some-group");
-            put(BOOTSTRAP_SERVERS_CONFIG, "172.16.12.90:29092");
+            put(APPLICATION_ID_CONFIG, "some-group-st");
+            put(BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
             put(DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
-            put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, MessageSerdes.class.getName());
+            put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, ResultSerdes.class.getName());
         }});
     }
 }
