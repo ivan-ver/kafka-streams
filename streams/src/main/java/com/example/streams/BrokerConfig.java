@@ -1,6 +1,6 @@
 package com.example.streams;
 
-import com.example.streams.serialization.result.ResultSerdes;
+import com.example.streams.serialization.scorePlayerProduct.ScorePlayerProductSerdes;
 import org.apache.kafka.common.serialization.Serdes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class BrokerConfig {
             put(APPLICATION_ID_CONFIG, "some-group-st");
             put(BOOTSTRAP_SERVERS_CONFIG, "localhost:29092");
             put(DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass().getName());
-            put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, ResultSerdes.class.getName());
+            put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, ScorePlayerProductSerdes.class.getName());
         }});
     }
 }

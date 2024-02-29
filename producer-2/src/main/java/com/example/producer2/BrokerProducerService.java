@@ -20,7 +20,7 @@ public class BrokerProducerService {
     @Scheduled(fixedDelay = 500)
     private void sendMessage() {
         RND.nextLong(20);
-        long id = RND.nextLong(10);
+        long id = RND.nextLong(100);
         Player player = new Player(id, "User name " + id);
         kafkaTemplate.send("player", String.valueOf(id), player);
     }

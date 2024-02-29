@@ -19,8 +19,8 @@ public class BrokerProducerService {
 
     @Scheduled(fixedDelay = 500)
     private void sendMessage() {
-        RND.nextLong(20);
-        Product product = new Product(RND.nextLong(10), "Product name " + RND.nextInt(100));
-        kafkaTemplate.send("product", UUID.randomUUID().toString(), product);
+        Long id = RND.nextLong(20);
+        Product product = new Product(id, "Product name " + id);
+        kafkaTemplate.send("product", String.valueOf(id), product);
     }
 }

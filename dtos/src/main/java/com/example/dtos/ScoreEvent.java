@@ -2,7 +2,7 @@ package com.example.dtos;
 
 public record ScoreEvent(
         Long playerId,
-        Long ProductId,
+        Long productId,
         Double score
 ) {
 }

@@ -19,7 +19,7 @@ public class BrokerProducerService {
     @Scheduled(fixedDelay = 500)
     private void sendMessage() {
         RND.nextLong(20);
-        ScoreEvent scoreEvent = new ScoreEvent(RND.nextLong(10), RND.nextLong(10), RND.nextDouble(100));
+        ScoreEvent scoreEvent = new ScoreEvent(RND.nextLong(50), RND.nextLong(10), RND.nextDouble(100));
         kafkaTemplate.send("score", UUID.randomUUID().toString(), scoreEvent);
     }
 }
