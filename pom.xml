@@ -16,7 +16,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>producer-1</module>
+		<module>producer-pulse</module>
 	</modules>
 
 	<properties>

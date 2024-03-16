@@ -1,0 +1,18 @@
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:29092
+      groupId: some-group-id
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: latest
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+      client-id: id-id
+
+server:
+  port: 8083
